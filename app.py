@@ -96,7 +96,8 @@ elif choice == "📝 Faire le Sondage":
                 }
                 
                 try:
-                    supabase.table("sondages").insert(data).execute()
+                    supabase.table("Sondages").insert(data).execute()
+                    
                     st.success("✅ Félicitations ! Tes données ont été envoyées à la base de données.")
                     st.balloons()
                 except Exception as e:
@@ -108,7 +109,7 @@ elif choice == "📊 Statistiques":
     
     try:
         # Récupération des données réelles
-        response = supabase.table("sondages").select("*").execute()
+        response = supabase.table("Sondages").select("*").execute()
         df = pd.DataFrame(response.data)
         
         if not df.empty:
